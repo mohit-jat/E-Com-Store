@@ -6,7 +6,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 import Dao.ProductsDao;
-import model.projects;
+import model.Products;
 
 @WebServlet("/UpdateStock")
 public class UpdateStock extends HttpServlet {
@@ -30,7 +30,7 @@ public class UpdateStock extends HttpServlet {
 
             ProductsDao dao = new ProductsDao();
 
-            projects p = dao.getProductById(id);
+            Products p = dao.getProductById(id);
 
             p.setStock(stock);
 

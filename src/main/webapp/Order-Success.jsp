@@ -26,7 +26,7 @@ Thank you for shopping with us ❤️
 <h5>📦 Your order is being processed</h5>
 <p class="text-muted">You will receive updates soon</p>
 
-<a href="AllProducts" class="btn btn-primary mt-3">
+<a href="Home" class="btn btn-primary mt-3">
 🛍️ Continue Shopping
 </a>
 

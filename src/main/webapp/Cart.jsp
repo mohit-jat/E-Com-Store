@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, model.projects" %>
+<%@ page import="java.util.*,model.Products" %>
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <%@ include file="mainLayout.jsp" %>
 
 
@@ -51,12 +55,12 @@
 <div class="col-lg-8">
 
 <%
-List<projects> list = (List<projects>) request.getAttribute("cartList");
+List<Products> list = (List<Products>) request.getAttribute("cartList");
 
 double total = 0;
 
 if(list != null && !list.isEmpty()){
-for(projects p : list){
+for(Products p : list){
 
 double subTotal = p.getDiscountPrice() * p.getStock();
 total += subTotal;
@@ -101,7 +105,7 @@ total += subTotal;
 
 <div class="text-center py-5">
     <h4 class="text-muted">Your Cart is Empty 😢</h4>
-    <a href="AllProducts" class="btn btn-warning mt-3">Shop Now</a>
+    <a href="Home" class="btn btn-warning mt-3">Shop Now</a>
 </div>
 
 <% } %>

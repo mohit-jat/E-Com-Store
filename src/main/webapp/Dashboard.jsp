@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="model.USER" %>
+ 
 <%
     USER loggedInUser = (USER) session.getAttribute("user");
     
@@ -9,6 +10,10 @@
         displayName = loggedInUser.getName(); 
     }
 %>
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <!DOCTYPE html>
 <html>
 <head>

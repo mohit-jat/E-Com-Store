@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, model.OrderDetails" %>
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,10 +87,7 @@ body{
 
                     <div class="mt-2">
 
-                        <a href="UpdateOrderStatus?id=<%= o.getOrderId() %>&status=Success"
-                           class="btn btn-primary btn-sm">
-                           Paid
-                        </a>
+                      
 
                         <a href="UpdateOrderStatus?id=<%= o.getOrderId() %>&status=Delivered"
                            class="btn btn-success btn-sm">

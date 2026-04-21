@@ -2,6 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.*, model.OrderDetails" %>
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <%@ include file="mainLayout.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -145,7 +149,7 @@ body{
 
         <h4 class="text-muted">No Orders Found 😢</h4>
 
-        <a href="GetAllProducts" class="btn btn-warning mt-3 px-4 rounded-pill fw-bold">
+        <a href="Home" class="btn btn-warning mt-3 px-4 rounded-pill fw-bold">
             🛍 Shop Now
         </a>
 

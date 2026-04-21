@@ -1,6 +1,12 @@
-<%@page import="model.projects"%>
+<%@page import="model.Products"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+
+
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <%@ include file="mainLayout.jsp" %>
 
 
@@ -35,7 +41,7 @@
 }
 
 .product-img {
-    height: 286px;
+    height: 300px;
     width: 100%;
     object-fit: contain;
 
@@ -82,10 +88,9 @@ page-btn {
 <div class="container my-5">
 
 <%
-List<projects> list = (List<projects>) request.getAttribute("Products");
+List<Products> list = (List<Products>) request.getAttribute("Products");
 
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-
 %>
 
 <!--  SORT -->
@@ -122,7 +127,7 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
 <%
 if(list != null && !list.isEmpty()){
-    for(projects p : list){
+    for(Products p : list){
 %>
 
 <div class="col-xl-4 col-lg-4 col-md-6 mb-4">

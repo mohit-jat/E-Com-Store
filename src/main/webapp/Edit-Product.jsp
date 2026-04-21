@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.projects" %>
+<%@ page import="model.Products" %>
+
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <%@ include file="mainLayout.jsp" %>
 
 
@@ -12,8 +17,7 @@
 <title>Edit Products</title>
 <body>
 <%
-projects p = (projects) request.getAttribute("product");
-
+Products p = (Products) request.getAttribute("product");
 %>
 
 <div class="container mt-5">
@@ -38,8 +42,12 @@ projects p = (projects) request.getAttribute("product");
 <select name="category" class="form-control">
 <option <%= p.getCategory().equals("Electronics")?"selected":"" %>>Electronics</option>
 <option <%= p.getCategory().equals("Fashion")?"selected":"" %>>Fashion</option>
-<option <%= p.getCategory().equals("Home")?"selected":"" %>>Home</option>
-<option <%= p.getCategory().equals("Beauty")?"selected":"" %>>Beauty</option>
+<option <%= p.getCategory().equals("Home Decor")?"selected":"" %>>Home Decor</option>
+<option <%= p.getCategory().equals("Sports")?"selected":"" %>>Sports</option>
+<option <%= p.getCategory().equals("Mobiles")?"selected":"" %>>Mobiles</option>
+<option <%= p.getCategory().equals("Beauty")?"selected":"" %>>beauty&health</option>
+<option <%= p.getCategory().equals("Laptops")?"selected":"" %>>Laptops</option>
+
 </select>
 </div>
 

@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ page import="java.util.*, model.projects" %>
+<%@ page import="java.util.*,model.Products" %>
+
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <%@ include file="mainLayout.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -100,11 +105,11 @@ placeholder="Enter phone number" required>
 <hr>
 
 <%
-List<projects> list = (List<projects>) request.getAttribute("cartList");
+List<Products> list = (List<Products>) request.getAttribute("cartList");
 double total = 0;
 
 if(list != null && !list.isEmpty()){
-for(projects p : list){
+for(Products p : list){
 
 double sub = p.getDiscountPrice() * p.getStock();
 total += sub;

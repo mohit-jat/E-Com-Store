@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import Dao.CartDao;
-import model.projects;
+import model.Products;
 
 @WebServlet("/Cart")
 public class CartServlet extends HttpServlet {
@@ -39,7 +39,7 @@ public class CartServlet extends HttpServlet {
 
         CartDao dao = new CartDao();
 
-        List<projects> list = dao.getCartItems(userId);
+        List<Products> list = dao.getCartItems(userId);
 
         request.setAttribute("cartList", list);
 

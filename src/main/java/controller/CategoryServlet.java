@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 
 import Dao.ProductsDao;
-import model.projects;
+import model.Products;
 
 @WebServlet("/Category")
 public class CategoryServlet extends HttpServlet {
@@ -28,7 +28,7 @@ public class CategoryServlet extends HttpServlet {
 
             String type = request.getParameter("type");
 
-            List<projects> list = new ArrayList<>();
+            List<Products> list = new ArrayList<>();
 
             if ("Electronics".equalsIgnoreCase(type)) {
                 list = dao.getElectronicsProducts();

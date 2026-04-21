@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import Dao.WishlistDao;
-import model.projects;
+import model.Products;
 
 @WebServlet("/Wishlist")
 public class WishlistServlet extends HttpServlet {
@@ -34,7 +34,7 @@ public class WishlistServlet extends HttpServlet {
         int userId = (int) session.getAttribute("userId");
 
         WishlistDao dao = new WishlistDao();
-        List<projects> list = dao.getWishlist(userId);
+        List<Products> list = dao.getWishlist(userId);
 
         request.setAttribute("wishlist", list);
 

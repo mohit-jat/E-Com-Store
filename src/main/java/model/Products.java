@@ -1,6 +1,6 @@
 package model;
 
-public class projects {
+public class Products {
 
     private int product_id;
     private String title;
@@ -16,7 +16,7 @@ public class projects {
     
     
     
-    public projects(int product_id, String title, String category, String brand, String description, double price,
+    public Products(int product_id, String title, String category, String brand, String description, double price,
 			double discountPrice, double rating, int stock, String img) {
 		super();
 		this.product_id = product_id;
@@ -34,7 +34,7 @@ public class projects {
 
 
 
-	public projects() {
+	public Products() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -42,7 +42,7 @@ public class projects {
 
 
 
-	public projects(String title, String category, String brand, String description, double price, double discountPrice,
+	public Products(String title, String category, String brand, String description, double price, double discountPrice,
 			double rating, int stock, String img) {
 		super();
 		this.title = title;

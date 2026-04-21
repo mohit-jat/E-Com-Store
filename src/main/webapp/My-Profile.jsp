@@ -1,4 +1,9 @@
 <%@ page import="model.USER" %>
+
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <%
     USER u = (USER) session.getAttribute("user");
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");

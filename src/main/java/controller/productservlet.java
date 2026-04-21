@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.projects;
+import model.Products;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,12 +13,11 @@ import java.util.List;
 import Dao.ProductsDao;
 
 @WebServlet("/Home")
-public class PaginationServlet extends HttpServlet {
+public class productservlet extends HttpServlet {
 
    
-	public PaginationServlet() {
+	public productservlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	private static final long serialVersionUID = 1L;
@@ -30,7 +29,7 @@ public class PaginationServlet extends HttpServlet {
     	
         
         int page = 1;
-        int limit = 6;
+        int limit = 21;
 
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
@@ -40,7 +39,7 @@ public class PaginationServlet extends HttpServlet {
 
         ProductsDao dao = new ProductsDao();
 
-        List<projects> list = dao.getProductsWithOffset(offset);
+        List<Products> list = dao.getProductsWithOffset(offset);
         int total = dao.getTotalProducts();
 
         int totalPages = (int) Math.ceil((double) total / limit);

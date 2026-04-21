@@ -3,7 +3,7 @@ package Dao;
 
 	import java.sql.*;
 	import java.util.*;
-	import model.projects;
+	import model.Products;
 
 	public class WishlistDao {
 
@@ -25,9 +25,9 @@ package Dao;
 	    }
 	  
 	    
-	    public List<projects> getWishlist(int userId) {
+	    public List<Products> getWishlist(int userId) {
 
-	        List<projects> list = new ArrayList<>();
+	        List<Products> list = new ArrayList<>();
 
 	        try (Connection con = ProductsDao.getConnection()) {
 
@@ -42,7 +42,7 @@ package Dao;
 
 	            while (rs.next()) {
 
-	                projects p = new projects();
+	                Products p = new Products();
 
 	                p.setproduct_id(rs.getInt("product_id"));
 	                p.setTitle(rs.getString("title"));

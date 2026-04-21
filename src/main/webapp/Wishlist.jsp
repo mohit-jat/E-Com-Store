@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, model.projects" %>
+<%@ page import="java.util.*,model.Products" %>
+
+
+ <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    %>
 <%@ include file="mainLayout.jsp" %>
 
 <!DOCTYPE html>
@@ -57,16 +63,16 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h3 class="fw-bold">❤️ My Wishlist</h3>
-    <a href="GetAllProducts" class="btn btn-outline-dark btn-sm">← Continue Shopping</a>
+    <a href="Home" class="btn btn-outline-dark btn-sm">← Continue Shopping</a>
 </div>
 
 <div class="row">
 
 <%
-List<projects> list = (List<projects>) request.getAttribute("wishlist");
+List<Products> list = (List<Products>) request.getAttribute("wishlist");
 
 if(list != null && !list.isEmpty()){
-    for(projects p : list){
+    for(Products p : list){
 %>
 
 <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
@@ -126,7 +132,7 @@ Rating: <b class="text-success"><%= p.getRating() %> ★</b>
     <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" width="120">
     <h4 class="mt-3 text-muted">Your Wishlist is Empty 😢</h4>
     <p class="text-muted">Save items you love ❤️</p>
-    <a href="GetAllProducts" class="btn btn-warning rounded-pill px-4">
+    <a href="Home" class="btn btn-warning rounded-pill px-4">
         Browse Products
     </a>
 </div>

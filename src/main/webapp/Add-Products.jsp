@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <%@include file="mainLayout.jsp" %>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +60,7 @@
 </head>
 <body>
 
+    <%@include file="mainLayout.jsp" %>
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
@@ -82,9 +83,9 @@
                                     <option value="Home">Home Decor</option>
 
                                     <option value="Beauty">Beauty&Health</option>
-                                    <option value="Beauty"> Leptop</option>
-                                    <option value="Beauty">Mobile</option>
-                                    <option value="Beauty">Sports</option>
+                                    <option value="Leptops"> Leptop</option>
+                                    <option value="Mobails">Mobile</option>
+                                    <option value="Sports">Sports</option>
                                     
                                 </select>
                             </div>
@@ -121,7 +122,7 @@
 
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Product Image</label>
-                                <input type="file" name="img" class="form-control" accept="image/*" required>
+                                <input type="file" name="img" class="form-control" accept="image/*" requied>
                             </div>
 
                             <input type="hidden" name="dateAdded" value="<%= new java.util.Date() %>">

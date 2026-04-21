@@ -4,7 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import model.projects;
+import model.Products;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class UpdateProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        projects p = new projects();
+        Products p = new Products();
 
         int id = Integer.parseInt(request.getParameter("id"));
 
@@ -56,7 +56,7 @@ public class UpdateProduct extends HttpServlet {
 
         } else {
             ProductsDao dao = new ProductsDao();
-            projects old = dao.getProductById(id);
+            Products old = dao.getProductById(id);
             p.setImg(old.getImg());
         }
 

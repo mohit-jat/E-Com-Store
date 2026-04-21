@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="model.USER" %>
-<%
-response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
+
+<% 
 USER currentUser = (USER) session.getAttribute("user");
 String role = (currentUser != null) ? currentUser.getRole() : "GUEST";
 %>
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+   %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -21,10 +25,10 @@ String role = (currentUser != null) ? currentUser.getRole() : "GUEST";
   background: #131921 !important; 
   padding: 0.6rem 1rem;
    }
-  .form-control{
-   
-   margin-left: 100px;
-  }
+  /* sirf navbar search pe apply hoga */
+.navbar .form-control{
+   margin-left: 0;
+}
   body.dark {
    background: #0f172a; 
    color: white; 
@@ -44,6 +48,10 @@ body.dark .card {
  
    }
 
+.input-group
+{
+margin-left:127px;
+}
 .sidebar {
     height: 100%;
    width: 0;
@@ -115,6 +123,55 @@ border: none;
   color: #febd69;   
   
       }
+      /* 🔥 MOBILE RESPONSIVE FIX */
+@media (max-width: 992px) {
+
+    /* navbar collapse properly */
+    .navbar .collapse {
+        background: #131921;
+        padding: 10px;
+    }
+
+    /* search bar full width */
+    .navbar form {
+        width: 100% !important;
+        margin: 10px 0;
+    }
+
+    .navbar .input-group {
+        width: 100%;
+    }
+
+    /* icons center */
+    .navbar-nav {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* sidebar width adjust */
+    .sidebar {
+        width: 0;
+    }
+}
+
+/* 🔥 SMALL MOBILE */
+@media (max-width: 576px) {
+
+    .navbar-brand {
+        font-size: 16px;
+    }
+
+    .navbar .btn,
+    .navbar .nav-link {
+        font-size: 14px;
+    }
+
+    /* icons spacing */
+    .navbar-nav .nav-item {
+        margin: 0 5px;
+    }
+}
 </style>
 </head>
 <body>
@@ -218,8 +275,11 @@ border: none;
             <i class="fa-solid fa-bars fs-4"></i>
         </button>
         <a class="navbar-brand text-warning" href="Home">MyStore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+    <span class="navbar-toggler-icon"></span>
+</button>
         
-        <div class="collapse navbar-collapse" id="navContent">
+<div class="collapse navbar-collapse justify-content-between" id="navContent">
             <form class="d-flex mx-auto w-50" action="Search" method="get">
                 <div class="input-group">
                     <input class="form-control" type="search" name="key" placeholder="Search items..." 

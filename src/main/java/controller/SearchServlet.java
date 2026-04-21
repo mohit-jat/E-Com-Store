@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.projects;
+import model.Products;
 
 
 @WebServlet("/Search")
@@ -31,7 +31,7 @@ public class SearchServlet extends HttpServlet {
             key = "";
         }
          ProductsDao dao = new ProductsDao();
-        List<projects> searchList = dao.searchProductsExtended(key);
+        List<Products> searchList = dao.searchProductsExtended(key);
 
         request.setAttribute("Products", searchList);
         request.setAttribute("searchKey", key);

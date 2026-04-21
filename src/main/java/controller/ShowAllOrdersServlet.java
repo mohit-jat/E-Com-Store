@@ -16,7 +16,6 @@ public class ShowAllOrdersServlet extends HttpServlet {
 
 	public ShowAllOrdersServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	private static final long serialVersionUID = 1L;
 

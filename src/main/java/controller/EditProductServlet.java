@@ -7,7 +7,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 import Dao.ProductsDao;
-import model.projects;
+import model.Products;
 
 @WebServlet("/EditProduct")
 public class EditProductServlet extends HttpServlet {
@@ -38,7 +38,7 @@ public class EditProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         ProductsDao dao = new ProductsDao();
-        projects p = dao.getProductById(id);
+        Products p = dao.getProductById(id);
 
         request.setAttribute("product", p);
 

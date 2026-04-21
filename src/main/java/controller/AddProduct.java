@@ -11,13 +11,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
-import model.projects;
-
-
+import model.Products;
 
 
 @WebServlet("/Add-Products")
-@MultipartConfig
+@MultipartConfig(
+    fileSizeThreshold = 1024 * 1024 * 2, 
+    maxFileSize = 1024 * 1024 * 5,     
+    maxRequestSize = 1024 * 1024 * 10  
+)
 public class AddProduct extends HttpServlet {
 	
     public AddProduct() {
@@ -56,7 +58,7 @@ public class AddProduct extends HttpServlet {
             filePart.write(path + File.separator + fileName);
             
 
-            projects prod = new projects();
+            Products prod = new Products();
             prod.setTitle(title);
             prod.setCategory(category);
             prod.setBrand(brand);
@@ -72,8 +74,7 @@ public class AddProduct extends HttpServlet {
 
            if(i!=0) {
 
-        	   
-        	   request.getRequestDispatcher("Home").forward(request, response);
+        	   request.getRequestDispatcher("Index.jsp").forward(request, response);
            }  
         	   else
         	   {

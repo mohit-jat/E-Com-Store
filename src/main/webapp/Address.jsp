@@ -1,6 +1,10 @@
->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+%>
+
 <%@ include file="mainLayout.jsp" %>
 
 <!DOCTYPE html>
@@ -9,40 +13,71 @@
 <meta charset="UTF-8">
 <title>Address</title>
 
+<!-- ✅ Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
-body{
+/* 🔥 SCOPE EVERYTHING */
+.address-page {
     background:#f5f6fa;
+    padding:20px;
 }
 
-.address-card{
-    border-radius:15px;
-    transition:0.3s;
-    border:none;
+/* FIX row (only inside this page) */
+.address-page .row {
+    display:flex;
+    flex-wrap:wrap;
 }
 
-.address-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+/* FIX columns padding */
+.address-page [class*="col-"] {
+    padding:10px;
 }
 
-.title{
-    font-weight:700;
-    font-size:18px;
-}
-
-.small-text{
-    color:#6c757d;
-    font-size:14px;
-}
-
-.form-box{
+/* FORM BOX */
+.address-page .form-box{
     background:white;
     padding:20px;
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    width:100%;
+}
+
+/* INPUT FIX */
+.address-page input,
+.address-page textarea {
+    width:100% !important;
+    box-sizing:border-box;
+}
+
+/* CARD */
+.address-page .address-card{
+    border-radius:15px;
+    border:none;
+    transition:0.3s;
+}
+
+.address-page .address-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.address-page .title{
+    font-weight:700;
+    font-size:18px;
+}
+
+.address-page .small-text{
+    color:#6c757d;
+    font-size:14px;
+}
+
+/* 🔥 MOBILE FIX */
+@media(max-width:768px){
+    .address-page .row{
+        flex-direction:column;
+    }
 }
 
 </style>
@@ -51,14 +86,14 @@ body{
 
 <body>
 
-<div class="container mt-4">
+<div class="container address-page">
 
     <h3 class="fw-bold mb-4">🏠 Saved Addresses</h3>
 
     <div class="row">
 
-        <!-- ================= ADD NEW ADDRESS ================= -->
-        <div class="col-lg-5 mb-4">
+        <!-- ADD NEW ADDRESS -->
+        <div class="col-lg-5">
 
             <div class="form-box">
 
@@ -86,25 +121,20 @@ body{
 
         </div>
 
-        <!-- ================= SAVED ADDRESSES LIST ================= -->
+        <!-- SAVED ADDRESSES -->
         <div class="col-lg-7">
 
             <h5 class="fw-bold mb-3">📍 Your Saved Addresses</h5>
 
             <%
-
                 List<String> dummy = new ArrayList<>();
-
                 if(dummy != null && !dummy.isEmpty()) {
-
                     for(String a : dummy) {
-
             %>
 
             <div class="card address-card p-3 mb-3">
 
                 <div class="title">John Doe</div>
-
                 <div class="small-text">9876543210</div>
 
                 <div class="mt-2">
@@ -112,23 +142,14 @@ body{
                 </div>
 
                 <div class="mt-3">
-
-                    <a href="SelectAddress?id=1" class="btn btn-primary btn-sm">
-                        Select
-                    </a>
-
-                    <a href="DeleteAddress?id=1" class="btn btn-danger btn-sm">
-                        Delete
-                    </a>
-
+                    <a href="SelectAddress?id=1" class="btn btn-primary btn-sm">Select</a>
+                    <a href="DeleteAddress?id=1" class="btn btn-danger btn-sm">Delete</a>
                 </div>
 
             </div>
 
             <%
-
                     }
-
                 } else {
             %>
 

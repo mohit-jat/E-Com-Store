@@ -37,6 +37,6 @@ public class AddToWishlist extends HttpServlet {
         WishlistDao dao = new WishlistDao();
         dao.addToWishlist(userId, pid);
 
-        response.sendRedirect("AllProducts");
+        response.sendRedirect("Home");
     }
 }

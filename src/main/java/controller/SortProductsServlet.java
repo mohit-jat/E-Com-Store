@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.projects;
+import model.Products;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +29,7 @@ public class SortProductsServlet extends HttpServlet {
         String sort = request.getParameter("sort");
 
         ProductsDao dao = new ProductsDao();
-        List<projects> list = null;
+        List<Products> list = null;
 
         if("low".equals(sort)){
             list = dao.sortByPriceLow();
